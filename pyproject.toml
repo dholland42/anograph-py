@@ -1,0 +1,31 @@
+[project]
+name = "anograph-py"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Daniel Holland", email = "dholland414@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.2.3",
+]
+
+[tool.uv]
+cache-keys = [
+  { file = "pyproject.toml" },
+  { file = "src/**/*.py" },
+  { file = "src/**/*.pyx" },
+  { file = "setup.py" },
+]
+
+[build-system]
+requires = ["setuptools", "cython", "numpy"]
+build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+dev = [
+    "cython>=3.0.12",
+    "nox>=2025.2.9",
+    "pytest>=8.3.5",
+]
