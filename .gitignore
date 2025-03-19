@@ -175,3 +175,10 @@ cython_debug/
 
 # cpp files from cython compilation
 *.cpp
+*.c
+
+# input/output data
+data/
+
+# cython build things
+# src/**/*.c

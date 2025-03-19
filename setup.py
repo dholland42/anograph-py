@@ -5,7 +5,7 @@ from Cython.Build import cythonize
 import numpy
 
 extensions = [
-    Extension(name="countmin", sources=["src/anograph/countmin.pyx"]),
+    # Extension(name="countmin", sources=["src/anograph/countmin.pyx"]),
     Extension(name="anograph", sources=["src/anograph/anograph.pyx"]),
 ]
 

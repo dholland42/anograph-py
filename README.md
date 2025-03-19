@@ -9,19 +9,17 @@ _Siddharth Bhatia, Mohit Wadhwa, Kenji Kawaguchi, Neil Shah, Philip S. Yu, Bryan
 ## Examples
 
 ```python
-from anograph.countmin import CountMin, HCountMin
+import numpy as np
+from anograph import AnoGraph
 
-cm = CountMin(2, 32)
-cm.add(5)
-assert cm.getcount(5) == 1
-cm.add_batch([5]*100)  # can be a numpy array
-assert cm.getcount(5) == 101
+ag = AnoGraph(num_buckets=2, bucket_size=32)
+ag.add(1, 2)
+ag.add_batch(np.random.randint(size=(100,2), dtype=np.uint64))
 
-hcm = HCountMin(2, 32)
-hcm.add(1, 2)
-assert cm.getcount(1, 2) == 1
-cm.add_batch([[1, 2]]*100)  # can be a numpy array
-assert cm.getcount(1, 2) == 101
+# It is presumed that hashing is done beforehand, so generate
+# hashes if you need to.
+source, target = "some source", "some target"
+ag.add(hash(source), hash(target))
 ```
 
 ## Citation
